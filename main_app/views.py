@@ -27,7 +27,7 @@ def signup(request):
   return render(request, 'registration/signup.html', context)
 
 def profiles_index(request):
-  profiles = Profile.objects.filter(user=request.user)
+  profiles = Profile.objects.all()
   return render(request, 'profiles/index.html', {
     'profiles': profiles
   })
