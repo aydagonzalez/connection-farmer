@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
+from .models import Profile
 
 # Create your views here.
 def home(request):
@@ -24,3 +25,9 @@ def signup(request):
   }
 
   return render(request, 'registration/signup.html', context)
+
+def profiles_index(request):
+  profiles = Profile.objects.filter(user=request.user)
+  return render(request, 'profiles/index.html', {
+    'profiles': profiles
+  })

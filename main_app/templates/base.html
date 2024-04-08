@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <title>Document</title>
 </head>
+
 <body>
     <header class="navbar-fixed">
         <nav>
@@ -19,27 +21,26 @@
                 <ul class="right">
                     <li><a href="">About</a></li>
                     {% if user.is_authenticated %}
-                      <li><a href="">Add a Toy</a></li>
-                      <li><a href="">View All Toys</a></li>
-                      <li><a href="">Add a Cat</a></li>
-                      <li><a href="{% url 'index' %}">Index home (where the heart is)</a></li>
-                      <li>
+                    <li><a href="{% url 'index' %}">Index home (where the heart is)</a></li>
+                    <li>
                         <form action="{% url 'logout' %}" method="POST">
                             {% csrf_token %}
-                            <button type="submit" class="btn" >Log Out</button>
+                            <button type="submit" class="btn">Log Out</button>
 
-                        </form></li>
+                        </form>
+                    </li>
                     {% else %}
-                      <li><a href="{% url 'signup' %}">Sign Up</a></li>
-                      <li><a href="{% url 'login' %}">Log In</a></li>
+                    <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                    <li><a href="{% url 'login' %}">Log In</a></li>
                     {% endif %}
-                  </ul>
+                </ul>
             </div>
         </nav>
     </header>
 
     {% block content %}
     {% endblock %}
-    
+
 </body>
+
 </html>
