@@ -6,6 +6,34 @@
     <title>Document</title>
 </head>
 <body>
+    <header class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <ul>
+                    <li><a href="{% url 'home' %}" class="left brand-logo">Home (where the heart is)</a></li>
+                </ul>
+                <ul class="right">
+                    <!-- changes below -->
+                    <li><a href="">About</a></li>
+                    {% if user.is_authenticated %}
+                      <li><a href="">Add a Toy</a></li>
+                      <li><a href="">View All Toys</a></li>
+                      <li><a href="">Add a Cat</a></li>
+                      <li><a href="{% url 'index' %}">Index home (where the heart is)</a></li>
+                      <li>
+                        <form action="{% url 'logout' %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" class="btn" >Log Out</button>
+
+                        </form></li>
+                    {% else %}
+                      <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                      <li><a href="{% url 'login' %}">Log In</a></li>
+                    {% endif %}
+                  </ul>
+            </div>
+        </nav>
+    </header>
 
     {% block content %}
     {% endblock %}
