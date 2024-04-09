@@ -56,6 +56,9 @@ class Job(models.Model):
     desirability_bar = models.IntegerField()
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
 
+    def get_absolute_url(self):
+        return reverse('detail', kwargs={'profile_id': self.profile})
+
 class Event(models.Model):
     date = models.DateField()
     type_of_event = models.CharField(
