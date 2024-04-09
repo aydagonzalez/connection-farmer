@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
-from .models import Profile
+from .models import Profile, Job
 
 # Create your views here.
 def home(request):
@@ -34,7 +34,8 @@ def profiles_index(request):
 
 
 def profiles_detail(request, profile_id):
-  profile = Profile.objects.get(id=profile_id)
+
+  jobs = Job.objects.all()
   return render(request, 'profiles/detail.html', {
-    'profile': profile, 
+    'jobs': jobs
   })
