@@ -57,7 +57,7 @@ class Job(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
 
     def get_absolute_url(self):
-        return reverse('detail', kwargs={'profile_id': self.profile})
+        return reverse('detail', kwargs={'job_id': self.id})
 
 class Event(models.Model):
     date = models.DateField()
@@ -68,3 +68,6 @@ class Event(models.Model):
     time_spent = models.IntegerField()
     comment = models.TextField()
     job = models.ForeignKey(Job, on_delete=models.CASCADE)
+
+    def get_absolute_url(self):
+        return reverse('job_detail', kwargs={'event_id': self.id})
