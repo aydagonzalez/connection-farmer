@@ -1,6 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Jobs</h1>
+<h1>Tracked Job Applications</h1>
+
+{% for job in jobs %}
+
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">{{ job.position_applied_for }}</span>
+            <p>Company Name: {{ job.company_name }}</p>
+            <p>Status: {{ job.status }}</p>
+        </div>
+    </div>
+</a>
+{% endfor %}
 
 {% endblock %}
