@@ -2,6 +2,16 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
 
+
+APPLICATION_STATUS =(
+    ('open', 'open'),
+    ('closed','closed'),
+    )
+
+RESUME_TYPE = (
+    ('targeted', 'targeted'),
+    ('spam', 'spam')
+)
 # Create your models here.
 class Profile(models.Model):
     full_name = models.CharField(max_length=50)
@@ -17,3 +27,23 @@ class Profile(models.Model):
 
     def get_absolute_url(self):
         return reverse('detail', kwargs={'profile_id': self.id})
+    
+
+class Job(models.Model):
+    position_applied_for = models.CharField(max_length=50)
+    company_name = models.CharField(max_length=50)
+    salary_range = models.IntegerField()
+    status = models.CharField(
+        max_length=200,
+        choices = APPLICATION_STATUS,
+        default= APPLICATION_STATUS[0][0],)
+    type_of_resume = models.CharField(
+        max_length=200,
+        choices = RESUME_TYPE,
+        default= RESUME_TYPE[0][0],)
+    dates = models.DateField()
+    time_spent = models.IntegerField()
+    confidence_bar = models.IntegerField()
+    desirability_bar = models.IntegerField()
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+
