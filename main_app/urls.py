@@ -13,4 +13,5 @@ urlpatterns = [
   path('jobs/<int:pk>/delete/', views.JobDelete.as_view(), name='jobs_delete'),
   path('profiles/<int:profile_id>/add_job/', views.add_job, name='add_job'),
   path('jobs/<int:pk>/update/', views.JobUpdate.as_view(), name='jobs_update'),
+  path('jobs/<int:job_id>/add_event/', views.add_event, name='add_event'),
 ]
