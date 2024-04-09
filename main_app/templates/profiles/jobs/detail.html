@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>{{job.position_applied_for}}</h1>
+
+{% for event in events %}
+
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">{{ event.type_of_event }}</span>
+            <p>{{ event.date }}</p>
+            <p>Minutes Spent: {{ event.time_spent }}</p>
+            <p>Comment: {{ event.comment }}</p>
+        </div>
+    </div>
+
+{% endfor %}
+
+{% endblock %}
