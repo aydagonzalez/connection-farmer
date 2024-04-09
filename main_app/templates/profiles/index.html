@@ -12,7 +12,7 @@
             <p>LinkedIn URL: <a href="{{ profile.linkedin_url }}">{{ profile.linkedin_url }}</a></p>
             <p>Industry: {{ profile.industry }}</p>
             <p>Number of Connections: {{ profile.number_connections }}</p>
-            <form action="{% url 'detail' %}" method="POST">
+            <form action="{% url 'detail' profile.id %}" method="POST">
                 {% csrf_token %}
                 <button type="submit" class="btn">More Info</button>
             </form>
