@@ -42,7 +42,8 @@ def profiles_detail(request, profile_id):
     job_form = JobForm()
     return render(request, 'profiles/detail.html', {
         'jobs': jobs,
-        'job_form': job_form
+        'job_form': job_form,
+        'profile_id': profile_id,
     })
 
 def jobs_detail(request, job_id):
@@ -58,8 +59,14 @@ class JobDelete(DeleteView):
   model = Job
   success_url = '/profiles'
 
+class JobUpdate(UpdateView):
+  model = Job
+  fields = '__all__'
+  success_url = '/profiles/jobs'
+
 def add_job(request, profile_id):
   form = JobForm(request.POST)
+  print('ANY KIND OF STRING')
   if form.is_valid():
     new_job = form.save(commit=False)
     new_job.profile_id = profile_id
