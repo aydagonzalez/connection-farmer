@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from .models import Profile, Job, Event
@@ -37,7 +38,7 @@ def profiles_index(request):
 
 def profiles_detail(request, profile_id):
     profile = Profile.objects.get(id=profile_id)
-    jobs = Job.objects.filter(profile=profile_id)
+    jobs = Job.objects.filter(profile =profile_id)
     job_form = JobForm()
     return render(request, 'profiles/detail.html', {
         'jobs': jobs,
@@ -51,3 +52,16 @@ def jobs_detail(request, job_id):
     'events': events,
     'job': job
   })
+
+
+class JobDelete(DeleteView):
+  model = Job
+  success_url = '/profiles'
+
+def add_job(request, profile_id):
+  form = JobForm(request.POST)
+  if form.is_valid():
+    new_job = form.save(commit=False)
+    new_job.profile_id = profile_id
+    new_job.save()
+  return redirect('detail', profile_id=profile_id)
