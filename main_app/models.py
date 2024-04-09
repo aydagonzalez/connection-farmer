@@ -12,6 +12,14 @@ RESUME_TYPE = (
     ('targeted', 'targeted'),
     ('spam', 'spam')
 )
+
+EVENTS = (
+    ('applied', 'applied'),
+    ('interview', 'interview'),
+    ('accepted', 'accepted'),
+    ('rejected', 'rejected')
+)
+
 # Create your models here.
 class Profile(models.Model):
     full_name = models.CharField(max_length=50)
@@ -47,3 +55,12 @@ class Job(models.Model):
     desirability_bar = models.IntegerField()
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
 
+class Event(models.Model):
+    date = models.DateField()
+    type_of_event = models.CharField(
+        max_length=200,
+        choices = EVENTS,
+        default= EVENTS[0][0],)
+    time_spent = models.IntegerField()
+    comment = models.TextField()
+    job = models.ForeignKey(Job, on_delete=models.CASCADE)
