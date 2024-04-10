@@ -44,6 +44,7 @@ def profiles_detail(request, profile_id):
         'jobs': jobs,
         'job_form': job_form,
         'profile_id': profile_id,
+        'full_name':profile.full_name,
     })
 
 def jobs_detail(request, job_id):
@@ -62,6 +63,16 @@ def jobs_detail(request, job_id):
 class JobDelete(DeleteView):
   model = Job
   success_url = '/profiles'
+
+  def get_job_profile(self, **kwargs):
+    context = super().get_context_data(**kwargs)
+    return f"{self.profile.id}"
+
+  # def get_job_profile(self):
+  #   profile = self.profile_id
+  #   return profile
+  # profile_id = get_job_profile(Job)
+
 
 class JobUpdate(UpdateView):
   model = Job

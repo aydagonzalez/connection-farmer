@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>{{job.position_applied_for}}</h1>
+<h1><span id="blue-color">{{job.position_applied_for}}</span> Application Events</h1>
 
 <form action="{% url 'add_event' job_id %}" method="POST">
     {% csrf_token %}
