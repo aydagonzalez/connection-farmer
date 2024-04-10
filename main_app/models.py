@@ -23,7 +23,7 @@ EVENTS = (
 
 # Create your models here.
 class Profile(models.Model):
-    full_name = models.CharField(max_length=50)
+    full_name = models.CharField(default='noname', max_length=50)
     picture_url = models.TextField()
     linkedin_url = models.CharField(max_length=200)
     industry = models.CharField(max_length=200)
@@ -70,4 +70,4 @@ class Event(models.Model):
     job = models.ForeignKey(Job, on_delete=models.CASCADE)
 
     def get_absolute_url(self):
-        return reverse('job_detail', kwargs={'event_id': self.id})
+        return reverse('job_detail', kwargs={'job_id': self.job.id})

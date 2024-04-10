@@ -4,7 +4,9 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from .models import Profile, Job, Event
-from .forms import JobForm, EventForm
+from .forms import JobForm, EventForm, ProfileForm
+from django.contrib.auth.models import User
+
 
 # Create your views here.
 def home(request):
@@ -29,6 +31,15 @@ def signup(request):
 
   return render(request, 'registration/signup.html', context)
 
+def profiles_create(request):
+    form = ProfileForm(request.POST)
+    user_id = User.id
+    if form.is_valid():
+        new_profile = form.save(commit=False)
+        new_profile.user_id = user_id
+        new_profile.save()
+    return redirect('profiles', user_id=user_id)
+
 def profiles_index(request):
   profiles = Profile.objects.all()
   return render(request, 'profiles/index.html', {
@@ -44,6 +55,7 @@ def profiles_detail(request, profile_id):
         'jobs': jobs,
         'job_form': job_form,
         'profile_id': profile_id,
+        'full_name':profile.full_name,
     })
 
 def jobs_detail(request, job_id):
@@ -54,13 +66,14 @@ def jobs_detail(request, job_id):
     'events': events,
     'event_form': event_form,
     'job': job,
-    'job_id': job_id
+    'job_id': job_id,
   })
 
 
 class JobDelete(DeleteView):
   model = Job
-  success_url = '/profiles'
+  success_url = '/profiles/{profile_id}'
+
 
 class JobUpdate(UpdateView):
   model = Job
@@ -84,3 +97,11 @@ def add_event(request, job_id):
     new_event.job_id = job_id
     new_event.save()
   return redirect('job_detail', job_id=job_id)
+
+class EventDelete(DeleteView):
+  model = Event
+  success_url = '/jobs/{job_id}'
+
+class EventUpdate(UpdateView):
+  model = Event
+  fields = ['date', 'type_of_event', 'time_spent', 'comment']  

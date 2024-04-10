@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Tracked Job Applications</h1>
+<h1><span id="blue-color">{{full_name}}</span>'s Job Applications</h1>
 
 
 {% for job in jobs %}
@@ -16,7 +16,8 @@
         <p>Status: {{ job.status }}</p>
     </div>
     <div class="card-action">
-        <p><a href="{% url 'jobs_delete' job.id %}">Delete</a><a href="{% url 'jobs_update' job.id %}">Update</a></p>
+        <p><a href="{% url 'jobs_delete' job.id %}">Delete</a> 
+        <a href="{% url 'jobs_update' job.id %}">Update</a></p>
     </div>
     
 </div>
