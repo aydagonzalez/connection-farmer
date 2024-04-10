@@ -18,6 +18,11 @@
             <p>Minutes Spent: {{ event.time_spent }}</p>
             <p>Comment: {{ event.comment }}</p>
         </div>
+        <div class="card-action">
+            <p><a href="{% url 'events_delete' event.id %}">Delete</a> 
+            <a href="{% url 'events_update' event.id %}">Update</a></p>
+        </div>
+        
     </div>
 
 {% endfor %}

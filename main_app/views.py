@@ -54,7 +54,8 @@ def jobs_detail(request, job_id):
     'events': events,
     'event_form': event_form,
     'job': job,
-    'job_id': job_id
+    'job_id': job_id,
+
   })
 
 
@@ -84,3 +85,14 @@ def add_event(request, job_id):
     new_event.job_id = job_id
     new_event.save()
   return redirect('job_detail', job_id=job_id)
+
+
+
+class EventDelete(DeleteView):
+  model = Event
+  success_url = '/profiles'
+
+class EventUpdate(UpdateView):
+  model = Event
+  fields = ['date', 'type_of_event', 'time_spent', 'comment']  
+  

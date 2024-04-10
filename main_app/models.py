@@ -70,4 +70,4 @@ class Event(models.Model):
     job = models.ForeignKey(Job, on_delete=models.CASCADE)
 
     def get_absolute_url(self):
-        return reverse('job_detail', kwargs={'event_id': self.id})
+        return reverse('job_detail', kwargs={'job_id': self.job.id})
