@@ -16,7 +16,8 @@
         <p>Status: {{ job.status }}</p>
     </div>
     <div class="card-action">
-        <p><a href="{% url 'jobs_delete' job.id %}">Delete</a><a href="{% url 'jobs_update' job.id %}">Update</a></p>
+        <p><a href="{% url 'jobs_delete' job.id %}">Delete</a> 
+        <a href="{% url 'jobs_update' job.id %}">Update</a></p>
     </div>
     
 </div>
