@@ -8,6 +8,7 @@ urlpatterns = [
   path('accounts/signup/', views.signup, name='signup'),
   path('profiles/', views.profiles_index, name='index'),
   path('profiles/<int:profile_id>/', views.profiles_detail, name='detail'),
+  path('create_profile/', views.profiles_create, name='create_profile'),
   path('jobs/<int:job_id>', views.jobs_detail, name='job_detail'),
   path('accounts/profile/', views.signup, name='signup'),
   path('jobs/<int:pk>/delete/', views.JobDelete.as_view(), name='jobs_delete'),

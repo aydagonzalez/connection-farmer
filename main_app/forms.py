@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import Job, Event
+from .models import Job, Event, Profile
 
 class JobForm(ModelForm):
   class Meta:
@@ -11,4 +11,7 @@ class EventForm(ModelForm):
     model = Event
     fields = ['date', 'type_of_event', 'time_spent', 'comment']  
 
-
+class ProfileForm(ModelForm):
+  class Meta:
+    model = Profile
+    fields = ['full_name', 'picture_url', 'linkedin_url', 'industry', 'number_connections']
