@@ -27,8 +27,8 @@ class Profile(models.Model):
     picture_url = models.TextField()
     linkedin_url = models.CharField(max_length=200)
     industry = models.CharField(max_length=200)
-    number_connections = models.IntegerField()
-    total_time_spent = models.IntegerField()
+    number_connections = models.IntegerField(default =0)
+    total_time_spent = models.IntegerField(default =0)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):

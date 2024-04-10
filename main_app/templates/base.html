@@ -22,6 +22,9 @@
                 <ul class="right">
                     <li><a href="">About</a></li>
                     {% if user.is_authenticated %}
+
+                    <li><a href="{% url 'profile_update' profile.id %}">Edit Profile</a></li>
+
                     <li><a href="{% url 'index' %}">Index home (where the heart is)</a></li>
                     <li>
                         <form action="{% url 'logout' %}" method="POST">
@@ -32,7 +35,7 @@
                     </li>
                     {% else %}
                     <li><a href="{% url 'signup' %}">Sign Up</a></li>
-                    <li><a href="{% url 'create_profile' %}">Create Profile</a></li>
+                    <li><a href="{% url 'profileform' %}">Create Profile</a></li>
                     <li><a href="{% url 'login' %}">Log In</a></li>
                     {% endif %}
                 </ul>

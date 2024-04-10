@@ -19,7 +19,7 @@ def signup(request):
     if form.is_valid():
       user = form.save()
       login(request, user)
-      return redirect('index')
+      return redirect('profileform')
     else:
       error_message = 'Invalid signup. Please try again.'
   form = UserCreationForm()
@@ -28,20 +28,44 @@ def signup(request):
     'form': form,
     'error_message': error_message,
   }
-
   return render(request, 'registration/signup.html', context)
 
-def profiles_create(request):
-    form = ProfileForm(request.POST)
-    user_id = User.id
-    if form.is_valid():
-        new_profile = form.save(commit=False)
-        new_profile.user_id = user_id
-        new_profile.save()
-    return redirect('profiles', user_id=user_id)
+
+class ProfileCreate(CreateView):
+  model = Profile
+  fields = ['full_name', 'picture_url', 'linkedin_url', 'industry', 'number_connections',]
+  success_url = '/profiles'
+
+
+class ProfileUpdate(UpdateView):
+  model = Profile
+  fields = ['full_name', 'picture_url', 'linkedin_url', 'industry', 'number_connections',]
+
+
+
+  def form_valid(self, form):
+    form.instance.user = self.request.user  # form.instance is the cat
+    return super().form_valid(form)
+
+
+
+
+
+# def profiles_create(request):
+#     form = ProfileForm(request.POST)
+#     user_id = User.id
+#     if form.is_valid():
+#         new_profile = form.save(commit=False)
+#         new_profile.user_id = user_id
+#         new_profile.save()
+
+#     # return render(request, 'profiles/jobs/detail.html')
+#     return redirect('/profiles', user_id=user_id)
+
 
 def profiles_index(request):
   profiles = Profile.objects.all()
+  
   return render(request, 'profiles/index.html', {
     'profiles': profiles
   })
