@@ -75,6 +75,16 @@ class JobDelete(DeleteView):
   success_url = '/profiles/{profile_id}'
 
 
+  def get_job_profile(self, **kwargs):
+    context = super().get_context_data(**kwargs)
+    return f"{self.profile.id}"
+
+  # def get_job_profile(self):
+  #   profile = self.profile_id
+  #   return profile
+  # profile_id = get_job_profile(Job)
+
+
 class JobUpdate(UpdateView):
   model = Job
 #   form = JobForm()
@@ -98,10 +108,18 @@ def add_event(request, job_id):
     new_event.save()
   return redirect('job_detail', job_id=job_id)
 
+
 class EventDelete(DeleteView):
   model = Event
   success_url = '/jobs/{job_id}'
 
+
+
+class EventDelete(DeleteView):
+  model = Event
+  success_url = '/profiles'
+
 class EventUpdate(UpdateView):
   model = Event
   fields = ['date', 'type_of_event', 'time_spent', 'comment']  
+
