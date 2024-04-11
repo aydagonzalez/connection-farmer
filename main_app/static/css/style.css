@@ -17,3 +17,7 @@ body {
   #blue-color {
     color: blue;
   }
+
+  img {
+    border-radius: 50%;
+  }
