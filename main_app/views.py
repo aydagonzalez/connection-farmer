@@ -83,25 +83,35 @@ def profiles_index(request):
 def profiles_detail(request, profile_id):
     profile = Profile.objects.get(id=profile_id)
     jobs = Job.objects.filter(profile =profile_id)
+    time_spent = 0
+    for job in jobs:
+      events = job.event_set.all()
+      for event in events:
+        time_spent += event.time_spent
     job_form = JobForm()
     return render(request, 'profiles/detail.html', {
         'jobs': jobs,
         'job_form': job_form,
         'profile_id': profile_id,
         'full_name':profile.full_name,
+        'profile': profile,
+        'time_spent': time_spent,
     })
 
 def jobs_detail(request, job_id):
   job = Job.objects.get(id=job_id)
   events = Event.objects.filter(job=job_id)
+  time_spent = 0
+  for event in events:
+    time_spent += event.time_spent
   event_form = EventForm()
   return render(request, 'profiles/jobs/detail.html', {
     'events': events,
     'event_form': event_form,
     'job': job,
     'job_id': job_id,
+    'time_spent': time_spent,
   })
-
 
 class JobDelete(DeleteView):
   model = Job

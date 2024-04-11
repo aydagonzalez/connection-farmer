@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1><span id="blue-color">{{job.position_applied_for}}</span> Application Events</h1>
+<h1><span id="blue-color">{{job.position_applied_for}}</span> Application Details</h1>
 
-<form action="{% url 'add_event' job_id %}" method="POST">
-    {% csrf_token %}
-    {{ event_form.as_p }}
-    <input type="submit" class="btn" value="Add Event">
-</form>
+<h5>Position: {{job.position_applied_for}} | {{job.company_name}} | {{job.salary_range}} <br> 
+    Time Spent: {{time_spent}} | Type of Resume: {{job.type_of_resume}} <br>
+    Last Update: {{job.dates}} | Status: {{job.status}}<br>
+</h5>
+<!-- job.confidence_bar
+job.desirability_bar   -->
 
 {% for event in events %}
 
@@ -25,6 +26,12 @@
     </div>
 
 {% endfor %}
+
+<form action="{% url 'add_event' job_id %}" method="POST">
+    {% csrf_token %}
+    {{ event_form.as_p }}
+    <input type="submit" class="btn" value="Add Event">
+</form>
 
 <script>
     const dateEl = document.getElementById('id_date');

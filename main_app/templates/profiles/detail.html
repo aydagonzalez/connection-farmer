@@ -1,7 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1><span id="blue-color">{{full_name}}</span>'s Job Applications</h1>
+<h1><img src="{{profile.picture_url}}"><span id="blue-color">{{full_name}}</span>'s Profile</h1>
+<h5>Industry: {{profile.industry}}<br>
+    LinkedIn: <a href="{{profile.linkedin_url}}">{{profile.linkedin_url}}</a><br>
+    Connections: {{profile.number_connections}}<br>
+    Job Search Time Spent: {{time_spent}}
+</h5>
+
 
 
 {% for job in jobs %}
