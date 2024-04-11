@@ -6,11 +6,21 @@ from django.contrib.auth import login
 from .models import Profile, Job, Event
 from .forms import JobForm, EventForm, ProfileForm
 from django.contrib.auth.models import User
+from django.dispatch import receiver
+from django.db.models.signals import post_save
 
 
 # Create your views here.
 def home(request):
   return render(request, 'home.html')
+
+# @receiver(post_save, sender=User)
+# def create_profile(sender, instance, created, **kwargs):
+#     try:
+#        if created:
+#           Profile.objects.create(user=instance).save()
+#     except Exception as err:
+#        print(f'Error creating user profile!\n{err}')
 
 def signup(request):
   error_message = ''
@@ -18,6 +28,7 @@ def signup(request):
     form = UserCreationForm(request.POST)
     if form.is_valid():
       user = form.save()
+      # create_profile()
       login(request, user)
       return redirect('profileform')
     else:
@@ -33,8 +44,12 @@ def signup(request):
 
 class ProfileCreate(CreateView):
   model = Profile
-  fields = ['full_name', 'picture_url', 'linkedin_url', 'industry', 'number_connections',]
-  success_url = '/profiles'
+  fields = ['full_name', 'picture_url', 'linkedin_url', 'industry', 'number_connections']
+  # success_url = '/profiles'
+  def form_valid(self, form):
+    form.instance.user = self.request.user
+    return super().form_valid(form)
+
 
 
 class ProfileUpdate(UpdateView):
@@ -48,19 +63,13 @@ class ProfileUpdate(UpdateView):
     return super().form_valid(form)
 
 
-
-
-
-# def profiles_create(request):
-#     form = ProfileForm(request.POST)
-#     user_id = User.id
-#     if form.is_valid():
-#         new_profile = form.save(commit=False)
-#         new_profile.user_id = user_id
-#         new_profile.save()
-
-#     # return render(request, 'profiles/jobs/detail.html')
-#     return redirect('/profiles', user_id=user_id)
+# @receiver(post_save, sender=User)
+# def create_profile(sender, instance, created, **kwargs):
+#     try:
+#        if created:
+#           Profile.objects.create(user=instance).save()
+#     except Exception as err:
+#        print(f'Error creating user profile!\n{err}')
 
 
 def profiles_index(request):

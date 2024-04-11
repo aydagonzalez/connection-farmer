@@ -23,13 +23,13 @@ EVENTS = (
 
 # Create your models here.
 class Profile(models.Model):
-    full_name = models.CharField(default='noname', max_length=50)
-    picture_url = models.TextField()
-    linkedin_url = models.CharField(max_length=200)
-    industry = models.CharField(max_length=200)
-    number_connections = models.IntegerField(default =0)
-    total_time_spent = models.IntegerField(default =0)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    full_name = models.CharField(blank = True, max_length=50)
+    picture_url = models.TextField(blank = True)
+    linkedin_url = models.CharField(max_length=200, blank = True)
+    industry = models.CharField(max_length=200, blank = True)
+    number_connections = models.IntegerField(default =0, blank = True)
+    total_time_spent = models.IntegerField(default =0, blank = True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
 
     def __str__(self):
         return f'{self.full_name} ({self.id})'
