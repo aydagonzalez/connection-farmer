@@ -1,7 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
+<div style="display: flex;">
+<h1><img style="width: 200px;" src="{{profile.picture_url}}"><span id="blue-color">{{full_name}}</span>'s Profile</h1>
 
-<h1><img src="{{profile.picture_url}}"><span id="blue-color">{{full_name}}</span>'s Profile</h1>
+{% if  user.profile.id == profile.id %}
+<a style="justify-content:flex-end;" href="{% url 'profile_update' user.profile.id %}">Edit Profile</a>
+{% endif %}
+</div>
 <h5>Industry: {{profile.industry}}<br>
     LinkedIn: <a href="{{profile.linkedin_url}}">{{profile.linkedin_url}}</a><br>
     Connections: {{profile.number_connections}}<br>
@@ -11,8 +16,6 @@
 
 
 {% for job in jobs %}
-
-
 <div class="card">
     <div class="card-content">
         <a href="{% url 'job_detail' job.id %}">
@@ -21,10 +24,13 @@
         <p>Company Name: {{ job.company_name }}</p>
         <p>Status: {{ job.status }}</p>
     </div>
+
+    {% if  user.profile.id == profile.id %}
     <div class="card-action">
         <p><a href="{% url 'jobs_delete' job.id %}">Delete</a> 
         <a href="{% url 'jobs_update' job.id %}">Update</a></p>
     </div>
+    {% endif %}
     
 </div>
 
@@ -32,12 +38,13 @@
 
 {% endfor %}
 
+{% if  user.profile.id == profile.id %}
 <form action="{% url 'add_job' profile_id %}" method="POST">
     {% csrf_token %}
     {{ job_form.as_p }}
     <input type="submit" class="btn" value="Add Job">
 </form>
-
+{% endif %}
 
 
 

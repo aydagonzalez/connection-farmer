@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.forms import UserCreationForm
@@ -8,6 +8,7 @@ from .forms import JobForm, EventForm, ProfileForm
 from django.contrib.auth.models import User
 from django.dispatch import receiver
 from django.db.models.signals import post_save
+from django.contrib.auth.mixins import UserPassesTestMixin
 
 
 # Create your views here.
@@ -52,9 +53,14 @@ class ProfileCreate(CreateView):
 
 
 
-class ProfileUpdate(UpdateView):
+class ProfileUpdate(UserPassesTestMixin, UpdateView):
   model = Profile
   fields = ['full_name', 'picture_url', 'linkedin_url', 'industry', 'number_connections',]
+  def test_func(self):
+    profile = get_object_or_404(Profile, pk = self.kwargs['pk'])
+    return self.request.user == profile.user
+
+
 
 
 
