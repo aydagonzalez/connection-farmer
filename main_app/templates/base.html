@@ -23,7 +23,7 @@
                     <li><a href="">About</a></li>
                     {% if user.is_authenticated %}
 
-                    <li><a href="{% url 'profile_update' profile.id %}">Edit Profile</a></li>
+                    <li><a href="{% url 'profile_update' user.profile.id %}">Edit Profile</a></li>
 
                     <li><a href="{% url 'index' %}">Index home (where the heart is)</a></li>
                     <li>
