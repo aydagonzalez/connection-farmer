@@ -52,8 +52,8 @@ class Job(models.Model):
         default= RESUME_TYPE[0][0],)
     dates = models.DateField()
     time_spent = models.IntegerField()
-    confidence_bar = models.IntegerField()
-    desirability_bar = models.IntegerField()
+    confidence_bar = models.IntegerField("Confidence Rating (0-10):", default=10)
+    desirability_bar = models.IntegerField("Desirability Rating (0-10):", default=10)
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
 
     def get_absolute_url(self):

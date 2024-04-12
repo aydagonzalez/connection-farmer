@@ -17,22 +17,24 @@
         <nav>
             <div class="nav-wrapper">
                 <ul>
-                    <li><a href="{% url 'home' %}" class="left brand-logo">Home (where the heart is)</a></li>
+                    <li>
+                        <a href="{% url 'index' %}"><img src="https://stardewvalleywiki.com/mediawiki/images/6/67/Void_Chicken.png" alt=""></a>
+                    </li>
+                    <li>
+                        <a href="{% url 'index' %}" class="left brand-logo">Connection Farmer</a>
+                    </li>
                 </ul>
                 <ul class="right">
                     <li><a href="">About</a></li>
                     {% if user.is_authenticated %}
-                    
-                    
+
+
                     {% if user.profile %}
 
                     <li><a href="{% url 'detail' user.profile.id %}">Profile</a></li>
 
                     {% endif %}
 
-
-
-                    <li><a href="{% url 'index' %}">Index home (where the heart is)</a></li>
                     <li>
                         <form action="{% url 'logout' %}" method="POST">
                             {% csrf_token %}

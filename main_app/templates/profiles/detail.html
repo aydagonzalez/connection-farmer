@@ -3,15 +3,19 @@
 <div style="display: flex;">
 <h1><img style="width: 200px;" src="{{profile.picture_url}}"><span id="blue-color">{{full_name}}</span>'s Profile</h1>
 
-{% if  user.profile.id == profile.id %}
-<a style="justify-content:flex-end;" href="{% url 'profile_update' user.profile.id %}">Edit Profile</a>
-{% endif %}
+
 </div>
 <h5>Industry: {{profile.industry}}<br>
     LinkedIn: <a href="{{profile.linkedin_url}}">{{profile.linkedin_url}}</a><br>
     Connections: {{profile.number_connections}}<br>
-    Job Search Time Spent: {{time_spent}}
+    Job Search Time Spent: {{time_spent}} <br>
+    
 </h5>
+<h7>
+    {% if  user.profile.id == profile.id %}
+    <a style="justify-content:flex-end;" href="{% url 'profile_update' user.profile.id %}">Edit Profile</a>
+    {% endif %}
+</h7>
 
 
 

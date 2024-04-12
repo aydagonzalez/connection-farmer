@@ -107,6 +107,7 @@ def profiles_detail(request, profile_id):
 def jobs_detail(request, job_id):
   job = Job.objects.get(id=job_id)
   events = Event.objects.filter(job=job_id)
+  profile = Profile.objects.get(id=job.profile.id)
   time_spent = 0
   for event in events:
     time_spent += event.time_spent
@@ -117,6 +118,7 @@ def jobs_detail(request, job_id):
     'job': job,
     'job_id': job_id,
     'time_spent': time_spent,
+    'profile': profile,
   })
 
 class JobDelete(DeleteView):

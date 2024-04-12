@@ -4,7 +4,7 @@ from .models import Job, Event, Profile
 class JobForm(ModelForm):
   class Meta:
     model = Job
-    fields = ['position_applied_for', 'company_name', 'salary_range', 'status', 'type_of_resume', 'dates', 'time_spent', 'confidence_bar', 'desirability_bar']
+    fields = ['position_applied_for', 'company_name', 'salary_range', 'status', 'type_of_resume', 'dates', 'confidence_bar', 'desirability_bar']
     
 class EventForm(ModelForm):
   class Meta:
