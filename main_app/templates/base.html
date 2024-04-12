@@ -5,7 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Reem+Kufi+Fun:wght@400..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
@@ -25,7 +26,6 @@
                     </li>
                 </ul>
                 <ul class="right">
-                    <li><a href="">About</a></li>
                     {% if user.is_authenticated %}
 
 
@@ -39,6 +39,7 @@
                         <form action="{% url 'logout' %}" method="POST">
                             {% csrf_token %}
                             <button type="submit" class="btn">Log Out</button>
+                            <!-- might need logout class -->
 
                         </form>
                     </li>
@@ -52,8 +53,10 @@
         </nav>
     </header>
 
-    {% block content %}
-    {% endblock %}
+    <div class="content-area">
+        {% block content %}
+        {% endblock %}
+    </div>
 
 </body>
 

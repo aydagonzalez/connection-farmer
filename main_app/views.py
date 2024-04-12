@@ -3,6 +3,8 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Profile, Job, Event
 from .forms import JobForm, EventForm, ProfileForm
 from django.contrib.auth.models import User
@@ -43,7 +45,7 @@ def signup(request):
   return render(request, 'registration/signup.html', context)
 
 
-class ProfileCreate(CreateView):
+class ProfileCreate(LoginRequiredMixin, CreateView):
   model = Profile
   fields = ['full_name', 'picture_url', 'linkedin_url', 'industry', 'number_connections']
   # success_url = '/profiles'
@@ -60,10 +62,6 @@ class ProfileUpdate(UserPassesTestMixin, UpdateView):
     profile = get_object_or_404(Profile, pk = self.kwargs['pk'])
     return self.request.user == profile.user
 
-
-
-
-
   def form_valid(self, form):
     form.instance.user = self.request.user  # form.instance is the cat
     return super().form_valid(form)
@@ -77,7 +75,7 @@ class ProfileUpdate(UserPassesTestMixin, UpdateView):
 #     except Exception as err:
 #        print(f'Error creating user profile!\n{err}')
 
-
+@login_required
 def profiles_index(request):
   profiles = Profile.objects.all()
   
@@ -85,7 +83,7 @@ def profiles_index(request):
     'profiles': profiles
   })
 
-
+@login_required
 def profiles_detail(request, profile_id):
     profile = Profile.objects.get(id=profile_id)
     jobs = Job.objects.filter(profile =profile_id)
@@ -104,6 +102,7 @@ def profiles_detail(request, profile_id):
         'time_spent': time_spent,
     })
 
+@login_required
 def jobs_detail(request, job_id):
   job = Job.objects.get(id=job_id)
   events = Event.objects.filter(job=job_id)
@@ -121,7 +120,7 @@ def jobs_detail(request, job_id):
     'profile': profile,
   })
 
-class JobDelete(DeleteView):
+class JobDelete(LoginRequiredMixin, DeleteView):
   model = Job
   success_url = '/profiles/{profile_id}'
 
@@ -136,12 +135,13 @@ class JobDelete(DeleteView):
   # profile_id = get_job_profile(Job)
 
 
-class JobUpdate(UpdateView):
+class JobUpdate(LoginRequiredMixin, UpdateView):
   model = Job
 #   form = JobForm()
   fields = ['position_applied_for', 'company_name', 'salary_range', 'status', 'type_of_resume', 'dates', 'time_spent', 'confidence_bar', 'desirability_bar']
 #   success_url = '/profiles/<int:pk>'
 
+@login_required
 def add_job(request, profile_id):
   form = JobForm(request.POST)
   print('ANY KIND OF STRING')
@@ -151,6 +151,7 @@ def add_job(request, profile_id):
     new_job.save()
   return redirect('detail', profile_id=profile_id)
 
+@login_required
 def add_event(request, job_id):
   form = EventForm(request.POST)
   if form.is_valid():
@@ -160,17 +161,17 @@ def add_event(request, job_id):
   return redirect('job_detail', job_id=job_id)
 
 
-class EventDelete(DeleteView):
+class EventDelete(LoginRequiredMixin, DeleteView):
   model = Event
   success_url = '/jobs/{job_id}'
 
 
 
-class EventDelete(DeleteView):
+class EventDelete(LoginRequiredMixin, DeleteView):
   model = Event
   success_url = '/profiles'
 
-class EventUpdate(UpdateView):
+class EventUpdate(LoginRequiredMixin, UpdateView):
   model = Event
   fields = ['date', 'type_of_event', 'time_spent', 'comment']  
 
