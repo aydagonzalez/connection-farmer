@@ -16,7 +16,7 @@
     <header class="navbar-fixed">
         <nav>
             <div class="nav-wrapper">
-                <ul>
+                <ul id="nav-bar-ul">
                     <li>
                         <a href="{% url 'index' %}"><img src="https://stardewvalleywiki.com/mediawiki/images/6/67/Void_Chicken.png" alt=""></a>
                     </li>
@@ -24,7 +24,7 @@
                         <a href="{% url 'index' %}" class="left brand-logo">Connection Farmer</a>
                     </li>
                 </ul>
-                <ul class="right">
+                <ul class="right nav-bar-ul">
                     <li><a href="">About</a></li>
                     {% if user.is_authenticated %}
 
@@ -51,10 +51,10 @@
             </div>
         </nav>
     </header>
-
+<div id="block-content-div">
     {% block content %}
     {% endblock %}
-
+</div>
 </body>
 
 </html>

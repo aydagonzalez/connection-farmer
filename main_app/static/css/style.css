@@ -1,10 +1,17 @@
+/* 
+lighter green: rgb(138, 152, 110)
+darker green: rgb(81, 92, 51)
+yellowish: rgb(203, 179, 140)
+gray: rgb(175, 192, 205)
+red: rgb(149, 53, 53) 
+*/
+
 body {
-    display: flex;
-    min-height: 100vh;
-    /* flex-direction: column; */
-    padding: 10px;
-    flex-wrap: nowrap;
-  }
+  display: flex;
+  min-height: 100vh;
+  flex-wrap: nowrap;
+  background-color: rgb(138, 152, 110);
+}
   
   main {
     flex: 1 0 auto;
@@ -28,14 +35,37 @@ body {
   /* display: flex; */
 }
 
+#block-content-div {
+  margin-top: 80px;
+}
 
+#profile-picture {
+  width: 115px;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+  border: solid #000000 .3rem;
+}
 
 .card {
- max-width: 500px;
+  max-width: 500px;
 }
 
 .row {
   display: flex;
   justify-content: flex-start;
   /* column-gap: 100%; */
+}
+
+.profile-page {
+  display:flex;
+  flex-direction: column;
+}
+
+.nav-wrapper {
+  background-color: rgb(175, 192, 205);
+}
+
+#nav-bar-ul a {
+  color:#000000;
 }
