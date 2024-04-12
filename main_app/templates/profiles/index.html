@@ -7,8 +7,10 @@
 
     <div class="card">
         <div class="card-content">
+            <div class="image-wrapper">
+                <img src="{{ profile.picture_url }}" alt="profile picture">
+            </div>
             <span class="card-title">{{ profile.full_name }}</span>
-            <img style = "width: 100px" src="{{ profile.picture_url }}" alt="profile picture">
             <p>LinkedIn URL: <a href="{{ profile.linkedin_url }}">{{ profile.linkedin_url }}</a></p>
             <p>Industry: {{ profile.industry }}</p>
             <p>Number of Connections: {{ profile.number_connections }}</p>
