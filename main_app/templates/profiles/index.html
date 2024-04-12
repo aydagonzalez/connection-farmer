@@ -1,26 +1,41 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Profile List</h1>
+<div id="profile-index-h1">
+<h1 id="profile-index-h1" >Profile List</h1>
 
-{% for profile in profiles %}
 
-    <div class="card">
-        <div class="card-content">
-            <div class="image-wrapper">
+
+<div class="row">
+    <div class="card-container">
+    {% for profile in profiles %}
+    <div class="col s12 m6">
+    
+        <div class="card">
+            <div class="card-image">
                 <img src="{{ profile.picture_url }}" alt="profile picture">
+                <span class="card-title">{{ profile.full_name }}</span>
+                <a class="btn-floating halfway-fab waves-effect waves-light red">
+                    <form action="{% url 'detail' profile.id %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit" class="btn">More Info</button>
+                    </form>
+                    <i class="material-icons">add</i>
+                </a>
             </div>
-            <span class="card-title">{{ profile.full_name }}</span>
-            <p>LinkedIn URL: <a href="{{ profile.linkedin_url }}">{{ profile.linkedin_url }}</a></p>
-            <p>Industry: {{ profile.industry }}</p>
-            <p>Number of Connections: {{ profile.number_connections }}</p>
-            <form action="{% url 'detail' profile.id %}" method="POST">
-                {% csrf_token %}
-                <button type="submit" class="btn">More Info</button>
-            </form>
+            <div class="card-content">
+                <p><a href="{{ profile.linkedin_url }}">LinkedIn URL</a></p>
+                <p>Industry: {{ profile.industry }}</p>
+                <p>Number of Connections: {{ profile.number_connections }}</p>
+            </div>
         </div>
+
     </div>
-</a>
-{% endfor %}
+    {% endfor %}
+</div>
+
+</div>
+
+</div>
 
 {% endblock %}
