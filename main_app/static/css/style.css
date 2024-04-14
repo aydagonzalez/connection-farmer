@@ -11,6 +11,8 @@ body {
   min-height: 100vh;
   flex-wrap: nowrap;
   background-color: rgb(138, 152, 110);
+  min-height: 400px;
+  margin-bottom: 130px;
 }
   
   main {
@@ -273,6 +275,7 @@ body {
 }
 #image-container > img {
   margin-top: 3%;
+  margin-bottom: 3%
 }
 #home-page-titles {
   text-align: center;
