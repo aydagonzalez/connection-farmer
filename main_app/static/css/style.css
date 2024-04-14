@@ -75,6 +75,7 @@ body {
 
 
 
+
 /* LISA APRIL 12TH -------------*/
 
 /* 
@@ -238,3 +239,28 @@ body {
 } */
 
 /* END LISA APRIL 12TH -------------*/
+
+/* Jameson's CSS Section:  */
+
+#image-container {
+  text-align: center;
+}
+#image-container > img {
+  margin-top: 3%;
+}
+#home-page-titles {
+  text-align: center;
+  margin-left: 0%;
+  margin-right: 0%;
+}
+#home-page-paragraphs {
+  margin:15%;
+  margin-top:0%;
+  margin-bottom: 5%;
+}
+#home-page-paragraphs-last {
+  margin:15%;
+  margin-top:0%;
+  margin-bottom: 5%;
+  padding-bottom: 150px;
+}
