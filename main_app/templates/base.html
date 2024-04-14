@@ -6,10 +6,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Reem+Kufi+Fun:wght@400..700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Reem+Kufi+Fun:wght@400..700&display=swap"
+        rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=VT323&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=VT323&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -28,7 +31,7 @@
                 aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <img style="padding-right: 20px;padding-bottom: 20px; width: 60px;"
+            <img style="padding:10px; width: 60px;"
                 src="https://stardewvalleywiki.com/mediawiki/images/6/67/Void_Chicken.png" alt="">
             <a class="navbar-brand" href="{% url 'index' %}">
                 Connection Farmer
@@ -44,7 +47,8 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03" style="background-color: white; height:50px">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item">
-                        <a style="padding-left: 25px;" class="nav-link" href="/">About</a>
+                        <a style="padding-left: 25px; padding-right: 25px; padding-bottom: 0px" class="nav-link"
+                            href="/">About</a>
                     </li>
 
                     {% if user.is_authenticated %}
@@ -53,33 +57,43 @@
                     {% if user.profile %}
 
                     <li class="nav-item">
-                        <a style="padding-left: 25px;" class="nav-link"
+                        <a style="padding-left: 25px; padding-right: 25px; padding-bottom: 0px" class="nav-link"
                             href="{% url 'detail' user.profile.id %}">Profile</a>
                     </li>
 
                     {% endif %}
 
+                    <!-- Something about the logout button link is broken. It's style seems to depend on whether there is something that comes after it or not -->
                     <li class="nav-item">
-                        <form action="{% url 'logout' %}" method="POST">
+                        <form style="padding: 0px 0px 0px 0px" action="{% url 'logout' %}" method="POST">
                             {% csrf_token %}
-                            <a style="padding-left: 25px;" class="nav-link" href='#'
-                                onclick='this.parentNode.submit(); return false;'>Log Out</a>
+                            <a style="padding-left: 25px; padding-right: 25px; padding-bottom: 0px" class="nav-link" href='#' onclick='this.parentNode.submit(); return false;'>Log Out</a>
                         </form>
                     </li>
+                    <li class="nav-item">
+                        <form style="padding: 0px 0px 0px 0px" action="{% url 'logout' %}" method="POST">
+                            {% csrf_token %}
+                            <a class="nav-link" href='#' onclick='this.parentNode.submit(); return false;'>/</a>
+                        </form>
+                    </li>
+                    
 
                     {% else %}
 
                     <li class="nav-item">
-                        <a style="padding-left: 25px;" class="nav-link" href="{% url 'signup' %}">Sign Up</a>
+                        <a style="padding-left: 25px; padding-right: 25px; padding-bottom: 0px" class="nav-link"
+                            href="{% url 'signup' %}">Sign Up</a>
                     </li>
 
                     <li class="nav-item">
-                        <a style="padding-left: 25px;" class="nav-link" href="{% url 'profileform' %}">Create
+                        <a style="padding-left: 25px; padding-right: 25px; padding-bottom: 0px" class="nav-link"
+                            href="{% url 'profileform' %}">Create
                             Profile</a>
                     </li>
                     <li class="nav-item">
                         <a style="padding-left: 25px;" class="nav-link" href="{% url 'login' %}">Log In</a>
                     </li>
+                    
 
                     {% endif %}
 
@@ -139,27 +153,21 @@
     <div>
         <footer class="page-footer">
             <div class="container">
-                <div class="row">
+                <div class="footer-row">
                     <div class="col l6 s12">
                         <h5>Contributors</h5>
                         <ul>
                             <li>
                                 Ayda G - <a class="footer-links"
                                     href="https://www.linkedin.com/in/aydagonzalez15/">LinkedIn</a> - <a
-                                    class="footer-links" href="https://github.com/aydagonzalez15">GitHub</a> -
-                                aydagonzalez15@gmail.com
-                            </li>
-                            <li>
-                                Jameson H - <a class="footer-links"
-                                    href="https://www.linkedin.com/in/jameson-hussey/">LinkedIn</a> - <a
-                                    class="footer-links" href="https://github.com/jamesonhussey">GitHub</a> -
-                                jamesonhussey99@gmail.com
-                            </li>
-                            <li>
-                                Lisa Y - <a class="footer-links"
+                                    class="footer-links" href="https://github.com/aydagonzalez15">GitHub</a> | Jameson H -
+                                <a class="footer-links" href="https://www.linkedin.com/in/jameson-hussey/">LinkedIn</a>
+                                - <a class="footer-links" href="https://github.com/jamesonhussey">GitHub</a> | Lisa Y - <a
+                                    class="footer-links"
                                     href="https://www.linkedin.com/in/lisa-young-eayand/">LinkedIn</a> - <a
-                                    class="footer-links" href="https://github.com/eayand">GitHub</a> - eayetc@gmail.com
+                                    class="footer-links" href="https://github.com/eayand">GitHub</a>
                             </li>
+
                         </ul>
                     </div>
                 </div>
