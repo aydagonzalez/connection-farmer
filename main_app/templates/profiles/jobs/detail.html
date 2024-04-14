@@ -1,57 +1,98 @@
 {% extends 'base.html' %}
 {% block content %}
+<div>
+    <div class="page-body">
+        <h1 class="reemkufifun"><span class="farm-red">{{job.position_applied_for}}</span> Application Details</h1>
 
-<h1><span id="blue-color">{{job.position_applied_for}}</span> Application Details</h1>
+        <h5 class="reemkufifun job-stats">
+            <span class="company-salary">
+                {{job.company_name}}
+                <span class="pipe">|</span>
+                ${{job.salary_range}} <br>
+            </span>
 
-<h5>Position: {{job.position_applied_for}} | {{job.company_name}} | {{job.salary_range}} <br>
-    Time Spent: {{time_spent}} | Type of Resume: {{job.type_of_resume}} <br>
-    Last Update: {{job.dates}} | Status: {{job.status}}<br>
-</h5>
-<!-- job.confidence_bar
-job.desirability_bar   -->
+            <span class="nunitosans small">Resume: </span>{{job.type_of_resume}}
+            <span class="pipe">|</span>
+            <span class="nunitosans small">Time Spent: </span>{{time_spent}}<br>
 
-{% for event in events %}
+            <span class="nunitosans small">Confidence: </span>{{job.confidence_bar}}
+            <span class="pipe">|</span>
+            <span class="nunitosans small">Desirability: </span>{{job.desirability_bar}} <br>
 
-<div class="card">
-    <div class="card-content">
-        <span class="card-title">{{ event.type_of_event }}</span>
-        <p>{{ event.date }}</p>
-        <p>Minutes Spent: {{ event.time_spent }}</p>
-        <p>Comment: {{ event.comment }}</p>
+            <span class="nunitosans small">Status: </span>{{job.status}}
+            <span class="pipe">|</span>
+            <span class="nunitosans small">Last Update: </span>{{job.dates}}
+
+        </h5>
+        <!-- job.confidence_bar
+        job.desirability_bar   -->
+        <div class="event-card-container">
+            {% if user.profile.id == profile.id %}
+            <ul class="collapsible expandable card event-card">
+                <li class="active">
+                    <div class="collapsible-header">
+                        <h6> Add an Event</h6>
+                    </div>
+                    <div class="collapsible-body add-event-form">
+                        <!-- <div class="card event-card event-form"> -->
+                            <form action="{% url 'add_event' job_id %}" method="POST">
+                                {% csrf_token %}
+                                {{ event_form.as_p }}
+                                <div class="button-div">
+                                    <input type="submit" class="btn farm-red-bg" value="Add Event">
+                                </div>
+                            </form>
+                        <!-- </div> -->
+                    </div>
+                </li>
+            </ul>
+            {% endif %}
+
+            {% for event in events %}
+
+            <div class="card event-card">
+                <div class="card-content">
+                    <span class="card-title">{{ event.type_of_event }}</span>
+                    <p>{{ event.date }}<span class="pipe">|</span>Minutes Spent: {{ event.time_spent }}</p><br>
+                    <p>{{ event.comment }}</p>
+                </div>
+
+                {% if user.profile.id == profile.id %}
+                <div class="card-action">
+                    <p><a href="{% url 'events_delete' event.id %}">Delete</a>
+                        <a href="{% url 'events_update' event.id %}">Update</a>
+                    </p>
+                </div>
+                {% endif %}
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+
+
+        <script>
+
+            document.addEventListener('DOMContentLoaded', function () {
+                    const elems = document.querySelector('.collapsible');
+                    const instances = M.Collapsible.init(elems);
+                    instances.close();
+                });
+
+            const dateEl = document.getElementById('id_date');
+            M.Datepicker.init(dateEl, {
+                format: 'yyyy-mm-dd',
+                defaultDate: new Date(),
+                setDefaultDate: true,
+                autoClose: true
+            });
+
+            const selectEl = document.getElementById('id_type_of_event');
+            M.FormSelect.init(selectEl);
+
+        </script>
+
+        {% endblock %}
     </div>
-
-    {% if user.profile.id == profile.id %}
-    <div class="card-action">
-        <p><a href="{% url 'events_delete' event.id %}">Delete</a>
-            <a href="{% url 'events_update' event.id %}">Update</a>
-        </p>
-    </div>
-    {% endif %}
 </div>
-
-{% endfor %}
-
-{% if user.profile.id == profile.id %}
-<form action="{% url 'add_event' job_id %}" method="POST">
-    {% csrf_token %}
-    {{ event_form.as_p }}
-    <input type="submit" class="btn" value="Add Event">
-</form>
-{% endif %}
-
-
-<script>
-    const dateEl = document.getElementById('id_date');
-    M.Datepicker.init(dateEl, {
-        format: 'yyyy-mm-dd',
-        defaultDate: new Date(),
-        setDefaultDate: true,
-        autoClose: true
-    });
-
-    const selectEl = document.getElementById('id_type_of_event');
-    M.FormSelect.init(selectEl);
-
-</script>
-
-{% endblock %}

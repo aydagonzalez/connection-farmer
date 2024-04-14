@@ -11,6 +11,7 @@ from django.contrib.auth.models import User
 from django.dispatch import receiver
 from django.db.models.signals import post_save
 from django.contrib.auth.mixins import UserPassesTestMixin
+from django.forms import Textarea
 
 
 # Create your views here.
@@ -137,7 +138,7 @@ class JobDelete(LoginRequiredMixin, DeleteView):
 
 class JobUpdate(LoginRequiredMixin, UpdateView):
   model = Job
-#   form = JobForm()
+  # form = JobForm()
   fields = ['position_applied_for', 'company_name', 'salary_range', 'status', 'type_of_resume', 'dates', 'time_spent', 'confidence_bar', 'desirability_bar']
 #   success_url = '/profiles/<int:pk>'
 
@@ -173,5 +174,5 @@ class EventDelete(LoginRequiredMixin, DeleteView):
 
 class EventUpdate(LoginRequiredMixin, UpdateView):
   model = Event
-  fields = ['date', 'type_of_event', 'time_spent', 'comment']  
+  fields = ['date', 'type_of_event', 'time_spent', 'comment']
 
