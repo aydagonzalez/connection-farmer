@@ -47,7 +47,7 @@ body {
   border: solid #000000 .3rem;
 }
 
-.card {
+.small-card {
   max-width: 500px;
 }
 
@@ -95,7 +95,15 @@ body {
 
 .page-body {
   margin: 0 auto;
-  width: 80%;
+  width: 100%;
+}
+
+.center-page-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
 }
 
 .farm-red {
@@ -139,6 +147,11 @@ body {
 
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
   color: rgb(81, 92, 51);
+}
+
+.card-action {
+  display: flex;
+  justify-content: space-between;
 }
 
 .datepicker-date-display, .datepicker-table td.is-today {
@@ -213,6 +226,19 @@ body {
   font-family: Reem Kufi Fun;
   font-size: 1.2rem;
   color: rgb(81, 92, 51)
+}
+
+.backsplash {
+  /* width: 100%; */
+  /* display: flex;
+  flex-direction: column;
+  flex-wrap: wrap; */
+  background-color: #F2F1EB;
+  padding: 2rem;
+  /* width: 100%; */
+  border-radius: 20px;
+  /* position: relative; */
+  /* position: fixed; */
 }
 
 
@@ -327,6 +353,7 @@ body {
   align-self: flex-start;
   width: 100%;
   flex-direction: row;
+  margin: 0 auto;
 }
 
 .card-add-form-dropdown {
