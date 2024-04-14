@@ -1,13 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h1>Delete Job</h1>
+  <h1>Delete Event</h1>
 
-  <h4>Are you sure you want to delete <span class="teal-text">{{ object.name }}</span>?</h4>
+  <h4>Are you sure you want to delete "<span class="farm-red">{{ object.type_of_event }} on {{ object.date }}</span>"?</h4>
 
   <form action="" method="POST">
     {% csrf_token %}
-    <input type="submit" value="Yes - Delete!" class="btn">
-    <a href="{% url 'job_detail' event.job.id %}">Cancel</a>
+    <div class="delete-options valign-wrapper button-div">
+      <input type="submit" value="Yes - Delete!" class="btn farm-red-bg">
+      <a class="cancel" href="{% url 'job_detail' event.job.id %}">Cancel</a>
+    </div>
   </form>
 {% endblock %}

@@ -71,3 +71,6 @@ class Event(models.Model):
 
     def get_absolute_url(self):
         return reverse('job_detail', kwargs={'job_id': self.job.id})
+    
+    class Meta:
+        ordering = ['-date']

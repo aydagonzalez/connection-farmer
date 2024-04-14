@@ -47,11 +47,13 @@
     {% endfor %}
 
     {% if user.profile.id == profile.id %}
-    <form action="{% url 'add_job' profile_id %}" method="POST">
-        {% csrf_token %}
-        {{ job_form.as_p }}
-        <input type="submit" class="btn" value="Add Job">
-    </form>
+    <div>
+        <form class="job-form-class card event-card" action="{% url 'add_job' profile_id %}" method="POST">
+            {% csrf_token %}
+            {{ job_form.as_p }}
+            <input type="submit" class="btn" value="Add Job">
+        </form>
+    </div>
     {% endif %}
 
 </div>

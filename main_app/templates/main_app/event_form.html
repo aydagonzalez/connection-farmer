@@ -7,13 +7,17 @@
     <h1>Add event</h1>
   {% endif %}
   <!-- Leaving the action empty makes the form post to the same url used to display it -->
-  <form action="{% url 'events_update' event.id %}" method="post">
-    {% csrf_token %}
-    <table>
-      {{ form.as_table }}
-    </table>
-    <input type="submit" value="Submit!" class="btn">
-  </form>
+  <div class="card event-card event-form">
+    <form action="{% url 'events_update' event.id %}" method="post">
+      {% csrf_token %}
+      <table>
+        {{ form.as_table }}
+      </table>
+      <div class="button-div">
+        <input type="submit" value="Submit!" class="btn farm-red-bg">
+      </div>
+    </form>
+  </div>
 
 
 
