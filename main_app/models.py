@@ -51,7 +51,7 @@ class Job(models.Model):
         choices = RESUME_TYPE,
         default= RESUME_TYPE[0][0],)
     dates = models.DateField()
-    time_spent = models.IntegerField()
+    time_spent = models.IntegerField(default =0)
     confidence_bar = models.IntegerField("Confidence Rating (0-10):", default=10)
     desirability_bar = models.IntegerField("Desirability Rating (0-10):", default=10)
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)

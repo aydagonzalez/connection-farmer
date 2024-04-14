@@ -264,3 +264,171 @@ body {
   margin-bottom: 5%;
   padding-bottom: 150px;
 }
+
+
+
+
+
+
+/* START AYDA APRIL 14TH -------------*/
+
+
+
+.prof-details-card {
+  width: 900px;
+}
+
+.add_job_form, .collapsible {
+  /* border: solid 3px black ; */
+  height: fit-content;
+  width: 900px;
+}
+
+#profile-index-h1 {
+  /* display: block; */
+  width: 100%;
+  /* margin-top: 40px; */
+  /* position: fixed;
+  display: flex; */
+}
+
+.btn-floating {
+  border-radius: 0%;
+  width: 100px;
+  background: transparent;
+}
+
+.profile-detail-page {
+  /* display:flex; */
+  flex-direction: column;
+  /* margin-left: 10%; */
+  /* align-items: center; */
+  width: 100%;
+  align-items: center;
+  /* border: solid 3px black ; */
+  /* background-color: red; */
+  background-color: #F2F1EB;
+  border-radius: 2%;
+}
+
+.valign-wrapper {
+
+  display: flex;
+  flex-direction: row;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+#block-content-div {
+  padding-top: 5%;
+  /* background-color: red; */
+  display: flex;
+  justify-self: flex-start;
+  align-self: flex-start;
+  width: 100%;
+  flex-direction: row;
+}
+
+.card-add-form-dropdown {
+  display: flex;
+  flex-direction: column;
+  column-gap: 60px;
+  justify-content: center;
+  justify-items: center;
+  justify-self: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.valign-wrapper > h1 {
+  /* color: red; */
+  margin-left: 20px;
+  /* padding-left: 20%; */
+}
+
+.job-details-card-start {
+  display: flex;
+  flex-direction: column;
+}
+
+.job-details-h5-h7 {
+  text-align:left;
+  /* padding-left: 2em; */
+
+  display: flex;
+  flex-direction: column;
+  /* text-justify: distribute; */
+  width: 700px;
+  align-self: center;
+}
+
+.btn-floating {
+  /* border: red;  */
+  border: none;
+  outline: none; 
+  background-color: rgb(175, 192, 205);
+  justify-content: center;
+  justify-items: center;
+  justify-self: center;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+}
+
+.card-profile-index {
+  max-width: 500px;
+  min-width: 300px;
+  /* width: max-content; */
+}
+
+.card-container-prof-index {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.card-container-prof-index > div {
+  flex: 1 1 200px; 
+  margin: 10px; 
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: #F2F1EB;
+  padding-bottom: 50px;
+  padding-top: 5%;
+  /* width: 100%; */
+  border-radius: 2%;
+  /* position: relative; */
+  /* position: fixed; */
+}
+
+.edit-profile-link {
+  /* display: none; */
+  visibility:hidden;
+}
+
+.profile-detail-page {
+  position: relative;
+}
+
+.profile-detail-page:hover .edit-profile-link {
+  /* background-color: white; */
+  outline: color( black);
+  /* opacity: 1; */
+  border-color: rgb(59, 110, 87);
+  z-index: 1;
+  cursor: pointer;
+  visibility: visible;
+}
+
+/* END AYDA APRIL 14TH -------------*/
+
+
