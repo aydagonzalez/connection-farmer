@@ -4,26 +4,26 @@
         <div class="center-page-content">
             <div class="backsplash">
 
-                <h1 class="reemkufifun"><span class="farm-red">{{job.position_applied_for}}</span> Application Details</h1>
+                <h1><span class="farm-red reemkufifun">{{job.position_applied_for}}</span> Application Details</h1>
                     <div class="event-card-container">
-                    <h5 class="reemkufifun job-stats">
-                        <span class="company-salary">
+                    <h5 class="job-stats">
+                        <span class="company-salary reemkufifun">
                             {{job.company_name}}
                             <span class="pipe">|</span>
                             ${{job.salary_range}} <br>
                         </span>
             
-                        <span class="nunitosans small">Resume: </span>{{job.type_of_resume}}
+                        <span class="small">Resume: </span><span class="reemkufifun">{{job.type_of_resume}}</span>
                         <span class="pipe">|</span>
-                        <span class="nunitosans small">Time Spent: </span>{{time_spent}}<br>
+                        <span class="small">Time Spent: </span><span class="reemkufifun">{{time_spent}}</span><br>
             
-                        <span class="nunitosans small">Confidence: </span>{{job.confidence_bar}}
+                        <span class=" small">Confidence: </span><span class="reemkufifun">{{job.confidence_bar}}</span>
                         <span class="pipe">|</span>
-                        <span class="nunitosans small">Desirability: </span>{{job.desirability_bar}} <br>
+                        <span class="small">Desirability: </span><span class="reemkufifun">{{job.desirability_bar}}</span> <br>
             
-                        <span class="nunitosans small">Status: </span>{{job.status}}
+                        <span class="small">Status: </span><span class="reemkufifun">{{job.status}}</span>
                         <span class="pipe">|</span>
-                        <span class="nunitosans small">Last Update: </span>{{job.dates}}
+                        <span class="small">Last Update: </span><span class="reemkufifun">{{job.dates}}</span>
             
                     </h5>
                     {% if user.profile.id == profile.id %}
@@ -32,7 +32,7 @@
                             <div class="collapsible-header">
                                 <h6> Add an Event</h6>
                             </div>
-                            <div class="collapsible-body add-event-form">
+                            <div class="collapsible-body add-item-form">
                                 <!-- <div class="card event-card event-form"> -->
                                     <form action="{% url 'add_event' job_id %}" method="POST">
                                         {% csrf_token %}

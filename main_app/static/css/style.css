@@ -6,6 +6,10 @@ gray: rgb(175, 192, 205)
 red: rgb(149, 53, 53) 
 */
 
+* {
+  font-family: Nunito Sans;
+}
+
 body {
   display: flex;
   min-height: 100vh;
@@ -28,6 +32,9 @@ body {
     color: blue;
   }
 
+.btn {
+  color: #ffffff;
+}
 
 #profile-index-h1 {
   /* display: block; */
@@ -160,6 +167,8 @@ body {
   background-color: rgb(203, 179, 140);
 }
 
+.datepicker-table td.is-selected {}
+
 .datepicker-cancel, .datepicker-done {
   color: rgb(203, 179, 140);
 }
@@ -174,14 +183,14 @@ body {
   display: flex;
 }
 
-.event-form form label, .add-event-form form p label {
+.event-form form label, .add-item-form form p label {
   color: rgb(81, 92, 51);
   font-family: Reem Kufi Fun;
   font-size: 1rem;
 }
 
 
-.event-form form input, .add-event-form form p input {
+.event-form form input, .add-item-form form p input {
   font-family: Nunito Sans;
 }
 
