@@ -31,8 +31,10 @@
                 aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <img style="padding:10px; width: 60px;"
-                src="https://stardewvalleywiki.com/mediawiki/images/6/67/Void_Chicken.png" alt="">
+            <a class="navbar-brand" href="{% url 'index' %}">
+                <img style="padding:10px; width: 60px;"
+                    src="https://stardewvalleywiki.com/mediawiki/images/6/67/Void_Chicken.png" alt="">
+            </a>
             <a class="navbar-brand" href="{% url 'index' %}">
                 Connection Farmer
             </a>
@@ -44,7 +46,7 @@
                 Connection Farmer
             </a> -->
 
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo03" style="background-color: white; height:50px">
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo03" style="height:50px; background-color: rgb(250, 249, 250)">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item">
                         <a style="padding-left: 25px; padding-right: 25px; padding-bottom: 0px" class="nav-link"
@@ -67,16 +69,17 @@
                     <li class="nav-item">
                         <form style="padding: 0px 0px 0px 0px" action="{% url 'logout' %}" method="POST">
                             {% csrf_token %}
-                            <a style="padding-left: 25px; padding-right: 25px; padding-bottom: 0px" class="nav-link" href='#' onclick='this.parentNode.submit(); return false;'>Log Out</a>
+                            <a style="padding-left: 25px; padding-right: 25px; padding-bottom: 0px" class="nav-link"
+                                href='#' onclick='this.parentNode.submit(); return false;'>Log Out</a>
                         </form>
                     </li>
                     <li class="nav-item">
-                        <form style="padding: 0px 0px 0px 0px" action="{% url 'logout' %}" method="POST">
+                        <form style="padding: 0px 0px 0px 0px; visibility:hidden;" action="{% url 'logout' %}" method="POST">
                             {% csrf_token %}
                             <a class="nav-link" href='#' onclick='this.parentNode.submit(); return false;'>/</a>
                         </form>
                     </li>
-                    
+
 
                     {% else %}
 
@@ -84,64 +87,21 @@
                         <a style="padding-left: 25px; padding-right: 25px; padding-bottom: 0px" class="nav-link"
                             href="{% url 'signup' %}">Sign Up</a>
                     </li>
-
                     <li class="nav-item">
-                        <a style="padding-left: 25px; padding-right: 25px; padding-bottom: 0px" class="nav-link"
-                            href="{% url 'profileform' %}">Create
-                            Profile</a>
+                        <a style="padding-left: 25px; padding-right: 25px; padding-bottom: 0px" class="nav-link" href="{% url 'login' %}">Log In</a>
                     </li>
                     <li class="nav-item">
-                        <a style="padding-left: 25px;" class="nav-link" href="{% url 'login' %}">Log In</a>
+                        <form style="padding: 0px 0px 0px 0px; visibility:hidden;" action="{% url 'logout' %}" method="POST">
+                            {% csrf_token %}
+                            <a class="nav-link" href='#' onclick='this.parentNode.submit(); return false;'>/</a>
+                        </form>
                     </li>
-                    
 
                     {% endif %}
-
-
-
-
 
                 </ul>
             </div>
         </nav>
-
-        <!-- <nav>
-            <div class="nav-wrapper">
-                <ul id="nav-bar-ul">
-                    <li id="logo-button">
-                        <a href="{% url 'index' %}"><img
-                                src="https://stardewvalleywiki.com/mediawiki/images/6/67/Void_Chicken.png" alt=""></a>
-                    </li>
-                    <li>
-                        <a href="{% url 'index' %}" class="left brand-logo">Connection Farmer</a>
-                    </li>
-                </ul>
-                <ul class="right nav-bar-ul">
-                    <li><a href="/">About</a></li>
-                    {% if user.is_authenticated %}
-
-
-                    {% if user.profile %}
-
-                    <li><a href="{% url 'detail' user.profile.id %}">Profile</a></li>
-
-                    {% endif %}
-                    <li>
-                        <form action="{% url 'logout' %}" method="POST">
-                            {% csrf_token %}
-                            <a href='#' onclick='this.parentNode.submit(); return false;'>Log Out</a>
-                        </form>
-                    </li>
-
-                    {% else %}
-
-                    <li><a href="{% url 'signup' %}">Sign Up</a></li>
-                    <li><a href="{% url 'profileform' %}">Create Profile</a></li>
-                    <li><a href="{% url 'login' %}">Log In</a></li>
-                    {% endif %}
-                </ul>
-            </div>
-        </nav> -->
     </header>
     <div id="block-content-div">
         {% block content %}
@@ -160,10 +120,11 @@
                             <li>
                                 Ayda G - <a class="footer-links"
                                     href="https://www.linkedin.com/in/aydagonzalez15/">LinkedIn</a> - <a
-                                    class="footer-links" href="https://github.com/aydagonzalez15">GitHub</a> | Jameson H -
+                                    class="footer-links" href="https://github.com/aydagonzalez15">GitHub</a> | Jameson H
+                                -
                                 <a class="footer-links" href="https://www.linkedin.com/in/jameson-hussey/">LinkedIn</a>
-                                - <a class="footer-links" href="https://github.com/jamesonhussey">GitHub</a> | Lisa Y - <a
-                                    class="footer-links"
+                                - <a class="footer-links" href="https://github.com/jamesonhussey">GitHub</a> | Lisa Y -
+                                <a class="footer-links"
                                     href="https://www.linkedin.com/in/lisa-young-eayand/">LinkedIn</a> - <a
                                     class="footer-links" href="https://github.com/eayand">GitHub</a>
                             </li>
