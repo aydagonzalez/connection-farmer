@@ -1,6 +1,71 @@
 {% extends 'base.html' %}
+{% load static %}
+
+
 {% block content %}
 
-<h1>Home</h1>
+<div id="home-page-container">
+
+<div id="image-container">
+    <img src="https://stardewvalleywiki.com/mediawiki/images/3/3d/Deluxe_Barn.png" alt="Barn Picture">
+</div>
+
+<div>
+    <h1 id="home-page-titles">
+        What is Connection Farmer?
+    </h1>
+    <h5 id="home-page-paragraphs">
+        Connection Farmer is a site designed for users to "farm" LinkedIn connections and track job search progress. If
+        you
+        have less than the preferred 500+ connections on your LinkedIn and want to change that, create a profile on this
+        site and farm some connections with random, like-minded strangers!
+    </h5>
+
+    <h3 id="home-page-titles">
+        How to Use Connection Farmer:
+    </h3>
+    <h5 id="home-page-paragraphs">
+        Simply sign up and create a profile to add yourself to the list of people open to farming connections. Then, you
+        can
+        go through the list of profiles, click on LinkedIn URLs, and send connection requests to as many people as you'd
+        like.
+    </h5>
+
+    <h3 id="home-page-titles">
+        How to Use Job Search Progress Tracker:
+    </h3>
+    <h5 id="home-page-paragraphs">
+        Once you've created a profile, you can add jobs you've applied to on your profile page. You can include details
+        such
+        as the kind of resume you submitted (general or a resume tailored to that specific job), your "fit"/how well you
+        meet the job requirements, and your confidence in being hired. <br><br>
+        Once you've registered a job, you can add an "event" via the jobs details page. This allows you to create a
+        timeline
+        of events such as "Applied", "Technical Interview", etc. You may also add how much time you spent on each event
+        throughout the process. Connection Farmer will automatically calculate the total time you've spent on any given
+        job
+        application process or your total time spent searching for jobs, and it will display these figures on the
+        relevant
+        pages.
+    </h5>
+
+    <h3 id="home-page-titles">
+        Why the farm theme?
+    </h3>
+    <h5 id="home-page-paragraphs-last">
+        Technopedia defines farming in a video game context to be a 
+        <span id="technopedia-quote">
+            "tactic where a player,
+            or someone hired by a player, performs repetitive actions to gain experience, points or some form of in-game
+            currency. Farming usually involves staying in a game area with a spawn point that generates endless numbers
+            of items or enemies."
+        </span>
+        <br><br>
+        So, in the context of this website, "farming" connections means performing the repetitive action of sending
+        connection requests to others who show up at the "spawn point" (the profile list page) in order to make the
+        process of getting the fabled "500+ Connections" milestone as efficient as possible.
+    </h5>
+</div>
+</div>
 
 {% endblock %}

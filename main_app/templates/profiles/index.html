@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div id="profile-index-h1">
+<h1 id="profile-index-h1" >Profile List</h1>
+
+<div class="row">
+    <div class="card-container card-container-prof-index">
+    {% for profile in profiles %}
+    <div class="col s12 m6">
+    
+        <div class="card card-profile-index">
+            <div class="card-image">
+                <img src="{{ profile.picture_url }}" alt="profile picture">
+                <span class="card-title ">{{ profile.full_name }}</span>
+
+                    <form  action="{% url 'detail' profile.id %}" method="POST">
+                        {% csrf_token %}
+                        <button class="btn-floating halfway-fab  waves-light"  type="submit" class="btn">DETAILS</button>
+                    </form>
+        
+
+            </div>
+            <div class="card-content">
+                <p><a href="{{ profile.linkedin_url }}">Connect on LinkedIn</a></p>
+                <p>Industry: {{ profile.industry }}</p>
+                <p>Number of Connections: {{ profile.number_connections }}</p>
+            </div>
+        </div>
+
+    </div>
+    {% endfor %}
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}
+

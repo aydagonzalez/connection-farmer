@@ -1,0 +1,507 @@
+/* 
+lighter green: rgb(138, 152, 110)
+darker green: rgb(81, 92, 51)
+yellowish: rgb(203, 179, 140)
+gray: rgb(175, 192, 205)
+red: rgb(149, 53, 53) 
+*/
+
+* {
+  font-family: Nunito Sans;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-wrap: nowrap;
+  background-color: rgb(138, 152, 110);
+  min-height: 400px;
+  margin-bottom: 130px;
+}
+
+
+/* FOR FORMS WITH NO HTML TEMPLATES */
+
+#block-content-div h1 {
+  width: 100%;
+  text-align: center;
+  font-family: Reem Kufi Fun;
+}
+
+#block-content-div form label {
+  color: rgb(81, 92, 51);
+  font-family: Reem Kufi Fun;
+  font-size: 1.5rem;
+}
+
+/* #block-content-div form button {
+  width: 10%;
+  margin: 0 45%
+} */
+
+
+
+  
+
+/* END FORMS */
+
+
+
+  
+  main {
+    flex: 1 0 auto;
+  }
+  
+  footer.page-footer {
+    padding-top: 0;
+    text-align: right;
+  }
+
+#blue-color {
+    color: blue;
+  }
+
+.btn {
+  color: #ffffff;
+  background-color: rgb(149, 53, 53) ;
+}
+
+#profile-index-h1 {
+  width: 100%;
+}
+
+
+
+#profile-picture {
+  width: 115px;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+  border: solid #000000 .3rem;
+}
+
+.small-card {
+  max-width: 500px;
+}
+
+.row {
+  display: flex;
+  justify-content: flex-start;
+  /* column-gap: 100%; */
+}
+
+.profile-page {
+  display:flex;
+  flex-direction: column;
+}
+
+.nav-wrapper {
+  background-color: rgb(175, 192, 205);
+}
+
+#nav-bar-ul a {
+  color:#000000;
+}
+
+
+
+
+
+
+
+/* LISA APRIL 12TH -------------*/
+
+/* 
+lighter green: rgb(138, 152, 110)
+darker green: rgb(81, 92, 51)
+yellowish: rgb(203, 179, 140)
+gray: rgb(175, 192, 205)
+red: rgb(149, 53, 53) 
+*/
+
+
+body {
+  background-color: rgb(175, 192, 205);
+  display: flex;
+  justify-content: center;
+}
+
+.page-body {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.center-page-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+.farm-red {
+  color: rgb(149, 53, 53);
+}
+
+.farm-red-bg {
+  background-color: rgb(149, 53, 53);
+}
+
+.reemkufifun {
+  font-family: Reem Kufi Fun;
+}
+
+.small {
+  font-size: 1.3rem;
+}
+
+.job-stats {
+  line-height: 2.3rem;
+}
+
+.pipe {
+  padding: 0 1rem;
+}
+
+.company-salary {
+  font-size: 2rem;
+  line-height: 3rem;
+}
+
+.event-card {
+  font-family: Nunito Sans;
+  margin: 2rem auto;
+  /* background-color: rgb(203, 179, 140); */
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
+  color: rgb(81, 92, 51);
+}
+
+.card-action {
+  display: flex;
+  justify-content: space-between;
+}
+
+.datepicker-date-display, .datepicker-table td.is-today {
+  background-color: rgb(203, 179, 140);
+}
+
+.datepicker-table td.is-selected {}
+
+.datepicker-cancel, .datepicker-done {
+  color: rgb(203, 179, 140);
+}
+
+.event-form {
+  padding: 1rem 2rem;
+  font-family: Nunito Sans;
+}
+
+.event-form button {
+  align-self: center;
+  display: flex;
+}
+
+.event-form form label, .add-item-form form p label {
+  color: rgb(81, 92, 51);
+  font-family: Reem Kufi Fun;
+  font-size: 1rem;
+}
+
+
+.event-form form input, .add-item-form form p input {
+  font-family: Nunito Sans;
+}
+
+.event-form form table tbody tr td textarea {
+  height: 6rem;
+}
+
+.event-form form p textarea {
+  height: 6rem;
+}
+
+.button-div {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.delete-options {
+  margin-top: 3rem;
+}
+
+.delete-options a {
+  color:rgb(149, 53, 53);
+}
+
+.cancel {
+  font-size: 1.8rem;
+  margin-left: 5rem;
+  border: solid rgb(149, 53, 53);
+  padding: 0 .5rem 0 .5rem;
+  border-radius: 5px;
+}
+
+.large-form {
+  margin: 3rem auto;
+  padding: 1rem;
+}
+
+.large-form input, .job-form-class input {
+  font-family: Nunito Sans;
+}
+
+.large-form label, .job-form-class label {
+  font-family: Reem Kufi Fun;
+  font-size: 1.2rem;
+  color: rgb(81, 92, 51)
+}
+
+.backsplash {
+  /* width: 100%; */
+  /* display: flex;
+  flex-direction: column;
+  flex-wrap: wrap; */
+  background-color: #F2F1EB;
+  padding: 2rem;
+  border-radius: 20px;
+  padding: 2rem 5rem;
+  /* position: relative; */
+  /* position: fixed; */
+}
+
+
+/* .event-card-container {
+  display: flex;
+  justify-content: center;
+} */
+
+
+/* END LISA APRIL 12TH -------------*/
+
+/* Jameson's CSS Section:  */
+
+#image-container {
+  text-align: center;
+}
+#image-container > img {
+  margin-top: 3%;
+  margin-bottom: 3%
+}
+#home-page-titles {
+  text-align: center;
+  margin-left: 0%;
+  margin-right: 0%;
+}
+#home-page-paragraphs {
+  margin:15%;
+  margin-top:0%;
+  margin-bottom: 5%;
+}
+#home-page-paragraphs-last {
+  margin:15%;
+  margin-top:0%;
+  margin-bottom: 5%;
+  padding-bottom: 150px;
+}
+
+
+
+
+
+
+/* START AYDA APRIL 14TH -------------*/
+
+.add_job_form, .collapsible {
+  /* border: solid 3px black ; */
+  height: fit-content;
+  width: 80%;
+
+}
+
+.prof-details-card {
+  width: 100%;
+}
+
+
+#profile-index-h1 {
+  /* display: block; */
+  width: 100%;
+  /* margin-top: 40px; */
+  /* position: fixed;
+  display: flex; */
+  
+}
+
+.btn-floating {
+  border-radius: 0%;
+  width: 100px;
+  background: transparent;
+}
+
+.profile-detail-page {
+  display:flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  background-color: #F2F1EB;
+  border-radius: 20px;
+  /* margin: 40px 60px 40px 60px; */
+  padding-bottom: 100px;
+  
+
+}
+
+.valign-wrapper {
+  /* display: flex; */
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 80px;
+  /* width: 80%; */
+}
+
+#block-content-div {
+  padding-top: 5%;
+  display: flex;
+  justify-self: flex-start;
+  align-self: flex-start;
+  width: 100%;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 100px;
+}
+
+.card-add-form-dropdown {
+  display: flex;
+  flex-direction: column;
+  column-gap: 60px;
+  justify-content: center;
+  justify-items: center;
+  justify-self: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.valign-wrapper > h1 {
+  /* color: red; */
+  margin-left: 20px;
+  width: 80%;
+  /* padding-left: 20%; */
+}
+
+.job-details-card-start {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.job-details-h5-h7 {
+  text-align:left;
+  /* padding-left: 2em; */
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  align-self: center;
+}
+
+.btn-floating {
+  border: none;
+  outline: none; 
+  background-color: rgb(149, 53, 53);
+  justify-content: center;
+  justify-items: center;
+  justify-self: center;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+}
+
+.card-profile-index {
+  max-width: 500px;
+  min-width: 300px;
+  /* width: max-content; */
+}
+
+.card-container-prof-index {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.card-container-prof-index > div {
+  flex: 1 1 200px; 
+  margin: 10px; 
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: #F2F1EB;
+  padding-bottom: 50px;
+  padding-top: 5%;
+  border-radius: 2%;
+  padding: 30px;
+  padding-left: 45px;
+}
+
+.edit-profile-link {
+  /* display: none; */
+  visibility:hidden;
+}
+
+
+
+.profile-detail-page:hover .edit-profile-link {
+  outline: color( black);
+  border-color: rgb(59, 110, 87);
+  z-index: 1;
+  cursor: pointer;
+  visibility: visible;
+}
+
+.card-profile-index {
+  max-width: 400px;
+}
+
+.btn-floating:hover {
+  background-color:bisque;
+}
+.btn:hover {
+  background-color:bisque;
+}
+
+.collapsible-body{
+  background-color: white;
+}
+/* NEED TO PICK THESE  COLORS AGAIN!!!!!!!! */
+/* END AYDA APRIL 14TH -------------*/
+/* .job-details-card-start {
+  width: 100%;
+} */
+
+.card-size {
+  width: 80%;
+  align-self: center;
+  
+}
+
+
+
+
+
+.full-width-dropdown {
+  width: 100%;
+}
+
+.edit-profile-link {
+  margin-left: .5rem;
+}

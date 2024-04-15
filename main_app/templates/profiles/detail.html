@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{% block content %}
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<div class="profile-detail-page">
+    <div class="valign-wrapper hover-trigger">
+        <img id="profile-picture" src="{{profile.picture_url}}">
+
+        <h1 class="reemkufifun">
+            <span class="blue-text">{{full_name}}</span>'s Profile 
+        </h1>
+
+        <div class="edit-profile-link">
+            <h7>
+                {% if user.profile.id == profile.id %}
+                <a class="edit-profile-link" href="{% url 'profile_update' user.profile.id %}">
+                    <i class="material-icons">edit</i> </a>
+                {% endif %}
+            </h7>
+        </div>
+    </div>
+    <div class="job-details-card-start">
+        <div class="job-details-h5-h7">
+            <h5>Industry: {{profile.industry}}<br>
+                <a href="{{profile.linkedin_url}}">Connect on LinkedIn</a><br>
+                Connections: {{profile.number_connections}}<br>
+                Job Search Time Spent: {{time_spent}} <br>
+
+            </h5>
+
+        </div>
+        <!-- ADDED THIS DIV -->
+        <div class="card-add-form-dropdown">
+
+
+            {% if user.profile.id == profile.id %}
+            <ul class="collapsible ">
+                <li class="active">
+                    <div class="collapsible-header">
+                        <!-- <h5> JOBS</h5> -->
+                        <h5> ADD NEW JOB</h5>
+
+
+                    </div>
+                    <div class="collapsible-body add_job_form add-item-form full-width-dropdown">
+
+                        <form action="{% url 'add_job' profile_id %}" method="POST">
+                            {% csrf_token %}
+                            {{ job_form.as_p }}
+                            <div class="button-div">
+                                <input type="submit" class="btn farm-red-bg" value="Add Job">
+                            </div>
+                        </form>
+                        {% endif %}
+                    </div>
+
+                </li>
+            </ul>
+
+            <div class="card-size">
+
+                {% for job in jobs %}
+                <div class="card prof-details-card">
+                    <div class="card-content">
+                        <a href="{% url 'job_detail' job.id %}">
+                            <span class="card-title">{{ job.position_applied_for }}</span>
+                        </a>
+                        <p>Company Name: {{ job.company_name }}</p>
+                        <p>Status: {{ job.status }}</p>
+                        <p>Date added: {{ job.dates }}</p>
+                        <p>Desirability: {{ job.desirability_bar }}</p>
+                        <div id="test-slider"></div>
+                    </div>
+
+                    {% if user.profile.id == profile.id %}
+                    <div class="card-action">
+                            <a  href="{% url 'jobs_update' job.id %}"><i class="material-icons">edit</i></a>
+                            <a  href="{% url 'jobs_delete' job.id %}"><i class="material-icons">delete</i></a>
+                    </div>
+                    {% endif %}
+
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <!-- TODO: BETWEEN THIS -->
+</div>
+
+<script>
+    const dateEl = document.getElementById('id_dates');
+    M.Datepicker.init(dateEl, {
+        format: 'yyyy-mm-dd',
+        defaultDate: new Date(),
+        setDefaultDate: true,
+        autoClose: true
+    });
+
+    const selectEl = document.getElementById('id_status');
+    M.FormSelect.init(selectEl);
+
+
+    const selectElResume = document.getElementById('id_type_of_resume');
+    M.FormSelect.init(selectElResume);
+
+    // ADDED THIS NEW THING
+    <!-- TODO: BETWEEN THIS -->
+    document.addEventListener('DOMContentLoaded', function () {
+        const elems = document.querySelector('.collapsible');
+        const instances = M.Collapsible.init(elems);
+        instances.close();
+    });
+
+
+    var slider = document.getElementById('test-slider');
+    noUiSlider.create(slider, {
+        start: [20, 80],
+        connect: true,
+        step: 1,
+        orientation: 'horizontal', // 'horizontal' or 'vertical'
+        range: {
+            'min': 0,
+            'max': 100
+        },
+        format: wNumb({
+            decimals: 0
+        })
+    });
+
+</script>
+
+{% endblock %}
