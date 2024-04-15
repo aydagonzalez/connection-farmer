@@ -73,8 +73,8 @@
                     {% if user.profile.id == profile.id %}
                     <div class="card-action">
                         <p>
-                            <a href="{% url 'jobs_update' job.id %}"><i class="material-icons">edit</i></a>
-                            <a href="{% url 'jobs_delete' job.id %}"><i class="material-icons">delete</i></a>
+                            <a class="delete-edit-icons" href="{% url 'jobs_update' job.id %}"><i class="material-icons">edit</i></a>
+                            <a class="delete-edit-icons" href="{% url 'jobs_delete' job.id %}"><i class="material-icons">delete</i></a>
                         </p>
                     </div>
                     {% endif %}
