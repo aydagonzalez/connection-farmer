@@ -18,6 +18,35 @@ body {
   min-height: 400px;
   margin-bottom: 130px;
 }
+
+
+/* FOR FORMS WITH NO HTML TEMPLATES */
+
+#block-content-div h1 {
+  width: 100%;
+  text-align: center;
+  font-family: Reem Kufi Fun;
+}
+
+#block-content-div form label {
+  color: rgb(81, 92, 51);
+  font-family: Reem Kufi Fun;
+  font-size: 1.5rem;
+}
+
+/* #block-content-div form button {
+  width: 10%;
+  margin: 0 45%
+} */
+
+
+
+  
+
+/* END FORMS */
+
+
+
   
   main {
     flex: 1 0 auto;
@@ -34,6 +63,7 @@ body {
 
 .btn {
   color: #ffffff;
+  background-color: rgb(149, 53, 53) ;
 }
 
 #profile-index-h1 {
@@ -120,8 +150,6 @@ body {
 .reemkufifun {
   font-family: Reem Kufi Fun;
 }
-
-
 
 .small {
   font-size: 1.3rem;
@@ -238,8 +266,8 @@ body {
   flex-wrap: wrap; */
   background-color: #F2F1EB;
   padding: 2rem;
-  /* width: 100%; */
   border-radius: 20px;
+  padding: 2rem 5rem;
   /* position: relative; */
   /* position: fixed; */
 }
@@ -250,22 +278,6 @@ body {
   justify-content: center;
 } */
 
-/* 
-// <uniquifier>: Use a unique and descriptive class name
-// <weight>: Use a value from 400 to 700
-
-.pixelify-sans-<uniquifier> {
-  font-family: "Pixelify Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
-}
-
-.vt323-regular {
-  font-family: "VT323", monospace;
-  font-weight: 400;
-  font-style: normal;
-} */
 
 /* END LISA APRIL 12TH -------------*/
 
@@ -335,7 +347,7 @@ body {
   width: 100%;
   align-items: center;
   background-color: #F2F1EB;
-  border-radius: 2%;
+  border-radius: 20px;
   /* margin: 40px 60px 40px 60px; */
   padding-bottom: 100px;
   
@@ -480,4 +492,16 @@ body {
   width: 80%;
   align-self: center;
   
+}
+
+
+
+
+
+.full-width-dropdown {
+  width: 100%;
+}
+
+.edit-profile-link {
+  margin-left: .5rem;
 }
