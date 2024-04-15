@@ -24,7 +24,7 @@ body {
     text-align: right;
   }
 
-  #blue-color {
+#blue-color {
     color: blue;
   }
 
@@ -32,7 +32,7 @@ body {
 #profile-index-h1 {
   /* display: block; */
   width: 100%;
-  margin-top: 40px;
+  margin: 40px 60px 40px 60px;
   /* position: fixed; */
   /* display: flex; */
 }
@@ -301,8 +301,6 @@ body {
 
 /* START AYDA APRIL 14TH -------------*/
 
-
-
 .prof-details-card {
   width: 900px;
 }
@@ -319,6 +317,7 @@ body {
   /* margin-top: 40px; */
   /* position: fixed;
   display: flex; */
+  
 }
 
 .btn-floating {
@@ -328,24 +327,27 @@ body {
 }
 
 .profile-detail-page {
-  /* display:flex; */
+  display:flex;
   flex-direction: column;
-  /* margin-left: 10%; */
+
   /* align-items: center; */
   width: 100%;
   align-items: center;
   /* border: solid 3px black ; */
-  /* background-color: red; */
   background-color: #F2F1EB;
   border-radius: 2%;
+  margin: 40px 60px 40px 60px;
+  padding-bottom: 100px;
+
 }
 
 .valign-wrapper {
-
   display: flex;
   flex-direction: row;
   /* justify-content: center; */
   align-items: center;
+  justify-content: center;
+  margin-top: 80px;
 }
 
 #block-content-div {
@@ -434,10 +436,9 @@ body {
   background-color: #F2F1EB;
   padding-bottom: 50px;
   padding-top: 5%;
-  /* width: 100%; */
   border-radius: 2%;
-  /* position: relative; */
-  /* position: fixed; */
+  padding: 30px;
+  padding-left: 45px;
 }
 
 .edit-profile-link {
@@ -459,6 +460,16 @@ body {
   visibility: visible;
 }
 
+.card-profile-index {
+  max-width: 400px;
+}
+
+.btn-floating:hover {
+  background-color:bisque;
+}
+.btn:hover {
+  background-color:bisque;
+}
+
+/* NEED TO PICK THESE  COLORS AGAIN!!!!!!!! */
 /* END AYDA APRIL 14TH -------------*/
-
-
