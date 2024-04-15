@@ -37,16 +37,10 @@ body {
 }
 
 #profile-index-h1 {
-  /* display: block; */
   width: 100%;
-  margin: 40px 60px 40px 60px;
-  /* position: fixed; */
-  /* display: flex; */
 }
 
-#block-content-div {
-  margin-top: 80px;
-}
+
 
 #profile-picture {
   width: 115px;
@@ -308,15 +302,17 @@ body {
 
 /* START AYDA APRIL 14TH -------------*/
 
-.prof-details-card {
-  width: 900px;
-}
-
 .add_job_form, .collapsible {
   /* border: solid 3px black ; */
   height: fit-content;
-  width: 900px;
+  width: 80%;
+
 }
+
+.prof-details-card {
+  width: 100%;
+}
+
 
 #profile-index-h1 {
   /* display: block; */
@@ -336,36 +332,34 @@ body {
 .profile-detail-page {
   display:flex;
   flex-direction: column;
-
-  /* align-items: center; */
   width: 100%;
   align-items: center;
-  /* border: solid 3px black ; */
   background-color: #F2F1EB;
   border-radius: 2%;
-  margin: 40px 60px 40px 60px;
+  /* margin: 40px 60px 40px 60px; */
   padding-bottom: 100px;
+  
 
 }
 
 .valign-wrapper {
-  display: flex;
+  /* display: flex; */
   flex-direction: row;
-  /* justify-content: center; */
   align-items: center;
   justify-content: center;
   margin-top: 80px;
+  /* width: 80%; */
 }
 
 #block-content-div {
   padding-top: 5%;
-  /* background-color: red; */
   display: flex;
   justify-self: flex-start;
   align-self: flex-start;
   width: 100%;
-  flex-direction: row;
+  flex-direction: column;
   margin: 0 auto;
+  padding: 100px;
 }
 
 .card-add-form-dropdown {
@@ -382,30 +376,29 @@ body {
 .valign-wrapper > h1 {
   /* color: red; */
   margin-left: 20px;
+  width: 80%;
   /* padding-left: 20%; */
 }
 
 .job-details-card-start {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .job-details-h5-h7 {
   text-align:left;
   /* padding-left: 2em; */
-
   display: flex;
   flex-direction: column;
-  /* text-justify: distribute; */
-  width: 700px;
+  width: 80%;
   align-self: center;
 }
 
 .btn-floating {
-  /* border: red;  */
   border: none;
   outline: none; 
-  background-color: rgb(175, 192, 205);
+  background-color: rgb(149, 53, 53);
   justify-content: center;
   justify-items: center;
   justify-self: center;
@@ -453,14 +446,10 @@ body {
   visibility:hidden;
 }
 
-.profile-detail-page {
-  position: relative;
-}
+
 
 .profile-detail-page:hover .edit-profile-link {
-  /* background-color: white; */
   outline: color( black);
-  /* opacity: 1; */
   border-color: rgb(59, 110, 87);
   z-index: 1;
   cursor: pointer;
@@ -478,5 +467,17 @@ body {
   background-color:bisque;
 }
 
+.collapsible-body{
+  background-color: white;
+}
 /* NEED TO PICK THESE  COLORS AGAIN!!!!!!!! */
 /* END AYDA APRIL 14TH -------------*/
+/* .job-details-card-start {
+  width: 100%;
+} */
+
+.card-size {
+  width: 80%;
+  align-self: center;
+  
+}
