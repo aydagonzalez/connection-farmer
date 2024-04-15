@@ -32,13 +32,14 @@ body {
 #profile-index-h1 {
   /* display: block; */
   width: 100%;
-  margin-top: 40px;
+  margin: 40px 60px 40px 60px;
   /* position: fixed; */
   /* display: flex; */
 }
 
 #block-content-div {
   margin-top: 80px;
+  
 }
 
 #profile-picture {
@@ -319,6 +320,7 @@ body {
   /* margin-top: 40px; */
   /* position: fixed;
   display: flex; */
+  
 }
 
 .btn-floating {
@@ -330,7 +332,7 @@ body {
 .profile-detail-page {
   /* display:flex; */
   flex-direction: column;
-  /* margin-left: 10%; */
+
   /* align-items: center; */
   width: 100%;
   align-items: center;
@@ -338,6 +340,8 @@ body {
   /* background-color: red; */
   background-color: #F2F1EB;
   border-radius: 2%;
+  margin: 40px 60px 40px 60px;
+
 }
 
 .valign-wrapper {
@@ -346,6 +350,9 @@ body {
   flex-direction: row;
   /* justify-content: center; */
   align-items: center;
+  justify-content: center;
+  margin-top: 80px;
+  top
 }
 
 #block-content-div {
