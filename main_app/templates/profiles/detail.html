@@ -7,7 +7,7 @@
         <img id="profile-picture" src="{{profile.picture_url}}">
 
         <h1 class="reemkufifun">
-            <span class="blue-text">{{full_name}}</span>'s Profile
+            <span class="blue-text">{{full_name}}</span>'s Profile 
         </h1>
 
         <div class="edit-profile-link">
@@ -42,7 +42,7 @@
 
 
                     </div>
-                    <div class="collapsible-body add_job_form add-item-form">
+                    <div class="collapsible-body add_job_form add-item-form full-width-dropdown">
 
                         <form action="{% url 'add_job' profile_id %}" method="POST">
                             {% csrf_token %}
