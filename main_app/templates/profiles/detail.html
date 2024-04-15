@@ -42,12 +42,14 @@
 
 
                     </div>
-                    <div class="collapsible-body add_job_form">
+                    <div class="collapsible-body add_job_form add-item-form">
 
                         <form action="{% url 'add_job' profile_id %}" method="POST">
                             {% csrf_token %}
                             {{ job_form.as_p }}
-                            <input type="submit" class="btn" value="Add Job">
+                            <div class="button-div">
+                                <input type="submit" class="btn farm-red-bg" value="Add Job">
+                            </div>
                         </form>
                         {% endif %}
                     </div>
