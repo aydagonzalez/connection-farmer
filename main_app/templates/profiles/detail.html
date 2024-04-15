@@ -6,7 +6,7 @@
     <div class="valign-wrapper hover-trigger">
         <img id="profile-picture" src="{{profile.picture_url}}">
 
-        <h1>
+        <h1 class="reemkufifun">
             <span class="blue-text">{{full_name}}</span>'s Profile
         </h1>
 
@@ -34,7 +34,7 @@
 
 
             {% if user.profile.id == profile.id %}
-            <ul class="collapsible expandable">
+            <ul class="collapsible ">
                 <li class="active">
                     <div class="collapsible-header">
                         <!-- <h5> JOBS</h5> -->
@@ -74,10 +74,8 @@
 
                     {% if user.profile.id == profile.id %}
                     <div class="card-action">
-                        <p>
-                            <a class="delete-edit-icons" href="{% url 'jobs_update' job.id %}"><i class="material-icons">edit</i></a>
-                            <a class="delete-edit-icons" href="{% url 'jobs_delete' job.id %}"><i class="material-icons">delete</i></a>
-                        </p>
+                            <a  href="{% url 'jobs_update' job.id %}"><i class="material-icons">edit</i></a>
+                            <a  href="{% url 'jobs_delete' job.id %}"><i class="material-icons">delete</i></a>
                     </div>
                     {% endif %}
 
